@@ -1,166 +1,170 @@
-# The System Design Primer
+# 系统设计入门
 
 <p align="center">
   <img src="http://i.imgur.com/jj3A5N8.png">
   <br/>
 </p>
 
-## Motivation
+## 动机
 
-> Learn how to design large scale systems.
+> 学习如何设计大型系统.
 >
-> Prep for the system design interview.
+> 为系统设计面试做准备
 
-### Learn how to design large scale systems
+### 学习如何设计大型系统
 
-Learning how to design scalable systems will help you become a better engineer.
+学习如何设计可扩展系统将帮助你成为更好的工程师.
 
-System design is a broad topic.  There is a **vast amount of resources scattered throughout the web** on system design principles.
+系统设计是一个宽泛的话题. 关于系统设计原则有**大量的资源分散在网络上**
 
-This repo is an **organized collection** of resources to help you learn how to build systems at scale.
+这个仓库是一个**经过整理的资源集合**，来帮助您学习如何构建大型系统
 
-### Learn from the open source community
+### 从开源社区学习
 
-This is an early draft of a continually updated, open source project.
+这是一个不断更新的开源项目的早期草案
 
-[Contributions](#contributing) are welcome!
+欢迎[贡献](#contributing)!
 
-### Prep for the system design interview
+### 为系统设计面试做准备
 
-In addition to coding interviews, system design is a **required component** of the **technical interview process** at many tech companies.
+除了编程面试之外，系统设计也是许多科技公司**技术向面试过程**的**必要组成部分**。
 
 **Practice common system design interview questions** and **compare** your results with **sample solutions**: discussions, code, and diagrams.
+**练习常见的系统设计面试问题**然后**比较**你的解决方案和**参考答案**:讨论、代码和图表。
 
-Additional topics for interview prep:
+面试准备的其他话题：
 
-* [Study guide](#study-guide)
-* [How to approach a system design interview question](#how-to-approach-a-system-design-interview-question)
-* [System design interview questions, **with solutions**](#system-design-interview-questions-with-solutions)
-* [Object-oriented design interview questions, **with solutions**](#object-oriented-design-interview-questions-with-solutions)
-* [Additional system design interview questions](#additional-system-design-interview-questions)
+* [学习指导](#study-guide)
+* [如何接近系统设计面试问题](#how-to-approach-a-system-design-interview-question)
+* [**有解决方案**的系统设计面试问题](#system-design-interview-questions-with-solutions)
+* [**有解决方案**的面向对象类设计面试问题](#object-oriented-design-interview-questions-with-solutions)
+* [其他系统设计面试问题](#additional-system-design-interview-questions)
 
-## Anki flashcards
+## Anki 快闪卡片(Anki flashcards)
+
+译者注:Anki快闪卡片是一个辅助记忆的工具
 
 <p align="center">
   <img src="http://i.imgur.com/zdCAkB3.png">
   <br/>
 </p>
 
-The provided [Anki flashcard decks](https://apps.ankiweb.net/) use spaced repetition to help you retain key system design concepts.
+下边提供的 [Anki flashcard decks](https://apps.ankiweb.net/)(不好翻译囧,建议先了解下Anki)使用间隔重复，来帮助你记住关键系统设计概念
 
-* [System design deck](https://github.com/donnemartin/system-design-primer/blob/master/resources/flash_cards/System%20Design.apkg)
-* [System design exercises deck](https://github.com/donnemartin/system-design-primer/blob/master/resources/flash_cards/System%20Design%20Exercises.apkg)
-* [Object oriented design exercises deck](https://github.com/donnemartin/system-design-primer/blob/master/resources/flash_cards/OO%20Design.apkg)
+* [系统设计 deck](https://github.com/donnemartin/system-design-primer/blob/master/resources/flash_cards/System%20Design.apkg)
+* [系统设计练习 deck](https://github.com/donnemartin/system-design-primer/blob/master/resources/flash_cards/System%20Design%20Exercises.apkg)
+* [面向对象设计练习 deck](https://github.com/donnemartin/system-design-primer/blob/master/resources/flash_cards/OO%20Design.apkg)
 
-Great for use while on-the-go.
 
-## Contributing
+非常适合在旅途中使用
 
-> Learn from the community.
+## 贡献
 
-Feel free to submit pull requests to help:
+> 从社区里学习.
 
-* Fix errors
-* Improve sections
-* Add new sections
+提交 pull requests 来帮助我们:
 
-Content that needs some polishing is placed [under development](#under-development).
+* 修正错误
+* 改进章节
+* 增加新的章节
 
-Review the [Contributing Guidelines](https://github.com/donnemartin/system-design-primer/blob/master/CONTRIBUTING.md).
+需要润色的内容放在[开发中](#under-development)里.
 
-## Index of system design topics
+查看[贡献引导](https://github.com/donnemartin/system-design-primer/blob/master/CONTRIBUTING.md).
 
-> Summaries of various system design topics, including pros and cons.  **Everything is a trade-off**.
+## 系统设计的主题索引
+
+> 各种系统设计主题的总结，包括利弊。** 一切都是折衷。**
 >
-> Each section contains links to more in-depth resources.
+> 每个部分包含指向更深入资源的链接。
 
 <p align="center">
   <img src="http://i.imgur.com/jrUBAF7.png">
   <br/>
 </p>
 
-* [System design topics: start here](#system-design-topics-start-here)
-    * [Step 1: Review the scalability video lecture](#step-1-review-the-scalability-video-lecture)
-    * [Step 2: Review the scalability article](#step-2-review-the-scalability-article)
-    * [Next steps](#next-steps)
-* [Performance vs scalability](#performance-vs-scalability)
-* [Latency vs throughput](#latency-vs-throughput)
-* [Availability vs consistency](#availability-vs-consistency)
-    * [CAP theorem](#cap-theorem)
-        * [CP - consistency and partition tolerance](#cp---consistency-and-partition-tolerance)
-        * [AP - availability and partition tolerance](#ap---availability-and-partition-tolerance)
-* [Consistency patterns](#consistency-patterns)
-    * [Weak consistency](#weak-consistency)
-    * [Eventual consistency](#eventual-consistency)
-    * [Strong consistency](#strong-consistency)
-* [Availability patterns](#availability-patterns)
-    * [Fail-over](#fail-over)
-    * [Replication](#replication)
-* [Domain name system](#domain-name-system)
-* [Content delivery network](#content-delivery-network)
+* [系统设计主题：从这里开始](#system-design-topics-start-here)
+    * [步骤1：观看关于可伸缩性的视频演讲](#step-1-review-the-scalability-video-lecture)
+    * [步骤2：查看关于可伸缩性的文章](#step-2-review-the-scalability-article)
+    * [下一步](#next-steps)
+* [性能vs可伸缩性](#performance-vs-scalability)
+* [延迟vs吞吐量](#latency-vs-throughput)
+* [可用性vs一致性](#availability-vs-consistency)
+    * [CAP定理](#cap-theorem)
+        * [CP - 一致性 和 分区容忍性](#cp---consistency-and-partition-tolerance)
+        * [AP - 可用性 和 分区容忍性](#ap---availability-and-partition-tolerance)
+* [一致性模式](#consistency-patterns)
+    * [弱一致性](#weak-consistency)
+    * [最终一致性](#eventual-consistency)
+    * [强一致性](#strong-consistency)
+* [可用性模式](#availability-patterns)
+    * [故障转移](#fail-over)
+    * [备份](#replication)
+* [域名系统](#domain-name-system)
+* [内容分发网络](#content-delivery-network)
     * [Push CDNs](#push-cdns)
     * [Pull CDNs](#pull-cdns)
-* [Load balancer](#load-balancer)
-    * [Active-passive](#active-passive)
-    * [Active-active](#active-active)
-    * [Layer 4 load balancing](#layer-4-load-balancing)
-    * [Layer 7 load balancing](#layer-7-load-balancing)
-    * [Horizontal scaling](#horizontal-scaling)
-* [Reverse proxy (web server)](#reverse-proxy-web-server)
-    * [Load balancer vs reverse proxy](#load-balancer-vs-reverse-proxy)
-* [Application layer](#application-layer)
-    * [Microservices](#microservices)
-    * [Service discovery](#service-discovery)
-* [Database](#database)
-    * [Relational database management system (RDBMS)](#relational-database-management-system-rdbms)
-        * [Master-slave replication](#master-slave-replication)
-        * [Master-master replication](#master-master-replication)
-        * [Federation](#federation)
-        * [Sharding](#sharding)
-        * [Denormalization](#denormalization)
-        * [SQL tuning](#sql-tuning)
+* [负载均衡器](#load-balancer)
+    * [主动 - 被动](#active-passive)
+    * [主动 - 主动](#active-active)
+    * [第4层负载均衡](#layer-4-load-balancing)
+    * [第7层负载均衡](#layer-7-load-balancing)
+    * [横向扩展](#horizontal-scaling)
+* [反向代理（web服务器）](#reverse-proxy-web-server)
+    * [负载均衡 vs 反向代理](#load-balancer-vs-reverse-proxy)
+* [应用层](#application-layer)
+    * [微服务](#microservices)
+    * [服务发现](#service-discovery)
+* [数据库](#database)
+    * [关系数据库管理系统(RDBMS)](#relational-database-management-system-rdbms)
+        * [主-从备份](#master-slave-replication)
+        * [主-主备份](#master-master-replication)
+        * [联邦](#federation)
+        * [分片](#sharding)
+        * [非标准化](#denormalization)
+        * [SQL调优](#sql-tuning)
     * [NoSQL](#nosql)
-        * [Key-value store](#key-value-store)
-        * [Document store](#document-store)
-        * [Wide column store](#wide-column-store)
-        * [Graph Database](#graph-database)
+        * [键值存储](#key-value-store)
+        * [文档存储](#document-store)
+        * [宽列存储](#wide-column-store)
+        * [图数据库](#graph-database)
     * [SQL or NoSQL](#sql-or-nosql)
-* [Cache](#cache)
-    * [Client caching](#client-caching)
-    * [CDN caching](#cdn-caching)
-    * [Web server caching](#web-server-caching)
-    * [Database caching](#database-caching)
-    * [Application caching](#application-caching)
-    * [Caching at the database query level](#caching-at-the-database-query-level)
-    * [Caching at the object level](#caching-at-the-object-level)
-    * [When to update the cache](#when-to-update-the-cache)
+* [缓存](#cache)
+    * [客户端缓存](#client-caching)
+    * [CDN缓存](#cdn-caching)
+    * [Web 服务器 caching](#web-server-caching)
+    * [数据库缓存](#database-caching)
+    * [应用缓存](#application-caching)
+    * [数据库查询级别缓存](#caching-at-the-database-query-level)
+    * [对象级别缓存](#caching-at-the-object-level)
+    * [何时更新缓存](#when-to-update-the-cache)(译者注:以下是四种模式的名字，不做翻译)
         * [Cache-aside](#cache-aside)
         * [Write-through](#write-through)
         * [Write-behind (write-back)](#write-behind-write-back)
         * [Refresh-ahead](#refresh-ahead)
-* [Asynchronism](#asynchronism)
-    * [Message queues](#message-queues)
-    * [Task queues](#task-queues)
-    * [Back pressure](#back-pressure)
-* [Communication](#communication)
-    * [Transmission control protocol (TCP)](#transmission-control-protocol-tcp)
-    * [User datagram protocol (UDP)](#user-datagram-protocol-udp)
-    * [Remote procedure call (RPC)](#remote-procedure-call-rpc)
-    * [Representational state transfer (REST)](#representational-state-transfer-rest)
-* [Security](#security)
-* [Appendix](#appendix)
-    * [Powers of two table](#powers-of-two-table)
-    * [Latency numbers every programmer should know](#latency-numbers-every-programmer-should-know)
-    * [Additional system design interview questions](#additional-system-design-interview-questions)
-    * [Real world architectures](#real-world-architectures)
-    * [Company architectures](#company-architectures)
-    * [Company engineering blogs](#company-engineering-blogs)
-* [Under development](#under-development)
+* [异步](#asynchronism)
+    * [消息队列](#message-queues)
+    * [任务队列](#task-queues)
+    * [背压](#back-pressure)
+* [通讯](#communication)
+    * [传输控制协议(TCP)](#transmission-control-protocol-tcp)
+    * [用户数据包协议(UDP)](#user-datagram-protocol-udp)
+    * [远程过程调用(RPC)](#remote-procedure-call-rpc)
+    * [表现层状态转化 (REST)](#representational-state-transfer-rest)(译者注:根据阮一峰的翻译)
+* [安全](#security)
+* [附录](#appendix)
+    * [两张表的力量](#powers-of-two-table)
+    * [每个程序员都应该知道的延迟数](#latency-numbers-every-programmer-should-know)
+    * [其他系统设计面试问题](#additional-system-design-interview-questions)
+    * [现实世界的架构](#real-world-architectures)
+    * [公司架构](#company-architectures)
+    * [公司技术博客](#company-engineering-blogs)
+* [开发中](#under-development)
 * [Credits](#credits)
-* [Contact info](#contact-info)
+* [联系方式](#contact-info)
 * [License](#license)
 
-## Study guide
+## 学习指导
 
 > Suggested topics to review based on your interview timeline (short, medium, long).
 
@@ -196,7 +200,7 @@ Start broad and go deeper in a few areas.  It helps to know a little about vario
 | Work through [Object-oriented design interview questions with solutions](#object-oriented-design-interview-questions-with-solutions) | Some | Many | Most |
 | Review [Additional system design interview questions](#additional-system-design-interview-questions) | Some | Many | Most |
 
-## How to approach a system design interview question
+## 如何接近系统设计面试问题
 
 > How to tackle a system design interview question.
 
